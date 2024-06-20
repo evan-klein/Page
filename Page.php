@@ -11,10 +11,8 @@ class Page {
 		'description' => NULL,
 		'keywords' => NULL,
 
-		'shortcut icon' => NULL,
 		'icon' => NULL,
 		'apple-touch-icon' => NULL,
-		'apple-touch-icon-precomposed' => NULL,
 
 		'preconnect' => [],
 
