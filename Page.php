@@ -109,7 +109,7 @@ HTML;
 		// plausible
 
 		// manifest
-		if( !\is_empty($cfg['manifest']) ){
+		if( !\empty($cfg['manifest']) ){
 			$html.=<<<HTML
 	<link rel="manifest" href="{$cfg['manifest']}">
 
@@ -139,8 +139,15 @@ HTML;
 		}
 
 		// canonical
+		if( !\empty($cfg['canonical']) ){
+			$html.=<<<HTML
+	<link rel="canonical" href="{$cfg['canonical']}">
+
+HTML;
+		}
 
 		// custom
+		if( !\empty($cfg['custom']) ) $html.=$cfg['custom'];
 
 		$html.="</head>\n";
 
