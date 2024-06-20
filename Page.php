@@ -71,7 +71,16 @@ class Page {
 
 HTML;
 
-		// TODO
+		// description and keywords
+		foreach(['description', 'keywords'] as $name){
+			if( !\empty($cfg[$name]) ){
+				$content = \htmlspecialchars($cfg[$name]);
+				$html.=<<<HTML
+	<meta name="$name" content="$content">
+
+HTML;
+			}
+		}
 
 		$html.="</head>\n";
 
