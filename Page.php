@@ -122,6 +122,15 @@ HTML;
 		}
 
 		// rss
+		if( \is_array($cfg['rss']) ){
+			foreach($cfg['rss'] as $title=>$url){
+				$title = \htmlspecialchars($title);
+				$html.=<<<HTML
+	<link rel="alternate" type="application/rss+xml" title="$title" href="$url">
+
+HTML;
+			}
+		}
 
 		// canonical
 
