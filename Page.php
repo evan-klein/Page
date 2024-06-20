@@ -109,6 +109,12 @@ HTML;
 		// plausible
 
 		// manifest
+		if( !\is_empty($cfg['manifest']) ){
+			$html.=<<<HTML
+	<link rel="manifest" href="{$cfg['manifest']}">
+
+HTML;
+		}
 
 		// og:title and og:image
 		foreach(['og:title', 'og:image'] as $property){
