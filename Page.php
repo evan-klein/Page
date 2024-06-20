@@ -66,12 +66,14 @@ class Page {
 <!doctype html>
 <html$lang>
 <head>
-	<meta charset="UTF-8" />
+	<meta charset="UTF-8">
 	<title>$title</title>
 
 HTML;
 
 		// TODO
+
+		$html.="</head>\n";
 
 		return $html;
 	}
