@@ -92,7 +92,6 @@ HTML;
 			}
 		}
 
-		// TODO
 		// preconnect
 
 		// viewport
@@ -111,9 +110,16 @@ HTML;
 
 		// manifest
 
-		// og:title
+		// og:title and og:image
+		foreach(['og:title', 'og:image'] as $property){
+			if( !\empty($cfg[$property]) ){
+				$content = \htmlspecialchars($cfg[$property]);
+				$html.=<<<HTML
+	<meta property="$property" content="$content">
 
-		// og:image
+HTML;
+			}
+		}
 
 		// rss
 
