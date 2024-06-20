@@ -19,8 +19,6 @@ class Page {
 		'viewport' => 'width=device-width, user-scalable=no, initial-scale=1.0',
 		'css' => [],
 
-		'js' => [],
-		'templates' => [],
 		'noscript' => NULL,
 
 		'plausible' => NULL,
@@ -33,7 +31,10 @@ class Page {
 
 		'canonical' => NULL,
 
-		'custom' => NULL
+		'custom' => NULL,
+
+		'js' => [],
+		'templates' => []
 	];
 
 
@@ -102,6 +103,24 @@ HTML;
 HTML;
 		}
 
+		// css
+
+		// noscript
+
+		// plausible
+
+		// manifest
+
+		// og:title
+
+		// og:image
+
+		// rss
+
+		// canonical
+
+		// custom
+
 		$html.="</head>\n";
 
 		return $html;
@@ -114,7 +133,9 @@ HTML;
 
 		$html = '';
 
-		// TODO
+		// js
+
+		// templates
 
 		return $html;
 	}
