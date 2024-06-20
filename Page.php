@@ -163,7 +163,7 @@ HTML;
 		}
 
 		// custom
-		if( !\empty($cfg['custom']) ) $html.=$cfg['custom'];
+		if( !\empty($cfg['custom']) ) $html.=$cfg['custom'] . "\n";
 
 		$html.="</head>\n";
 
