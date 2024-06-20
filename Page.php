@@ -91,6 +91,17 @@ HTML;
 			}
 		}
 
+		// TODO
+		// preconnect
+
+		// viewport
+		if( !\empty($cfg['viewport']) ){
+			$html.=<<<HTML
+	<meta name="viewport" content="{$cfg['viewport']}">
+
+HTML;
+		}
+
 		$html.="</head>\n";
 
 		return $html;
