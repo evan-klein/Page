@@ -61,6 +61,26 @@ class Page {
 		$this->cfg = \array_merge($this->cfg, $cfg);
 		return $this;
 	}
+
+
+	public function head(): string {
+		$html = <<<HTML
+TODO
+HTML;
+
+		// TODO
+
+		return $html;
+	}
+
+
+	public function tail(): string {
+		$html = '';
+
+		// TODO
+
+		return $html;
+	}
 }
 
 ?>
