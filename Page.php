@@ -80,6 +80,17 @@ HTML;
 			}
 		}
 
+		// icon and apple-touch-icon
+		foreach(['icon', 'apple-touch-icon'] as $type){
+			if( \is_string($cfg[$type]) ) $cfg[$type] = [$cfg[$type]];
+			if( \is_array($cfg[$type]) ){
+				foreach($cfg[$type] as $size=>$href){
+					$sizes = \stripos($size, 'x')===false ? '':" sizes=\"$size\"";
+					$html.="\t<link rel=\"$type\"$sizes href=\"$href\">\n";
+				}
+			}
+		}
+
 		$html.="</head>\n";
 
 		return $html;
