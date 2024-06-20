@@ -103,6 +103,14 @@ HTML;
 		}
 
 		// css
+		if( \is_array($cfg['css']) ){
+			foreach($cfg['css'] as $href){
+				$html.=<<<HTML
+	<link rel="stylesheet" href="$href">
+
+HTML;
+			}
+		}
 
 		// noscript
 		if( !\empty($cfg['noscript']) ){
