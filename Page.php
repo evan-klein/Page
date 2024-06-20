@@ -5,10 +5,9 @@ namespace evan_klein\page;
 class Page {
 	// Default values
 	private $cfg = [
-		'manifest' => NULL,
 		'lang' => 'en-US',
 
-		'title' => NULL,
+		'title' => 'Page title goes here',
 		'description' => NULL,
 		'keywords' => NULL,
 
@@ -28,13 +27,15 @@ class Page {
 
 		'plausible' => NULL,
 
-		'custom' => NULL,
+		'manifest' => NULL,
 
 		'og:title' => NULL,
 		'og:image' => NULL,
 		'rss' => [],
 
-		'canonical' => NULL
+		'canonical' => NULL,
+
+		'custom' => NULL
 	];
 
 
@@ -55,8 +56,19 @@ class Page {
 
 
 	public function head(): string {
+		// Shortcut
+		$cfg = $this->cfg;
+
+		$lang = !\empty($cfg['lang']) ? " lang=\"{$cfg['lang']}\"":'';
+		$title = \htmlspecialchars($cfg['title']);
+
 		$html = <<<HTML
-TODO
+<!doctype html>
+<html$lang>
+<head>
+	<meta charset="UTF-8" />
+	<title>$title</title>
+
 HTML;
 
 		// TODO
@@ -66,6 +78,9 @@ HTML;
 
 
 	public function tail(): string {
+		// Shortcut
+		$cfg = $this->cfg;
+
 		$html = '';
 
 		// TODO
