@@ -33,8 +33,8 @@ class Page {
 
 		'custom' => NULL,
 
-		'js' => [],
-		'templates' => []
+		'templates' => [],
+		'js' => []
 	];
 
 
@@ -189,9 +189,19 @@ HTML;
 
 		$html = '';
 
-		// js
-
 		// templates
+		if( \is_array($cfg['templates']) ){
+			foreach($cfg['templates'] as $id=>$file_path){
+				$template = \file_get_contents($file_path);
+				$html.=<<<HTML
+<script id="$id" type="text/html">
+$template
+</script>
+HTML;
+			}
+		}
+
+		// js
 
 		return $html;
 	}
