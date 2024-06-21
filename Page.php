@@ -194,7 +194,7 @@ HTML;
 			foreach($cfg['templates'] as $id=>$file_path){
 				$template = \file_get_contents($file_path);
 				$html.=<<<HTML
-<script id="$id" type="text/html">
+<script id="template_$id" type="text/html">
 $template
 </script>
 HTML;
