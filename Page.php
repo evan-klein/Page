@@ -197,6 +197,7 @@ HTML;
 <script id="template_$id" type="text/html">
 $template
 </script>
+
 HTML;
 			}
 		}
