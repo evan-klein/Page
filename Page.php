@@ -56,7 +56,7 @@ class Page {
 
 	public function addCSS(string|array $files): self {
 		if( \is_string($files) ) $files = [$files];
-		foreach($files as $file) $this->cfg['css'][$file];
+		foreach($files as $file) $this->cfg['css'][]=$file;
 		return $this;
 	}
 
