@@ -115,13 +115,11 @@ HTML;
 		}
 
 		// css
-		if( \is_array($cfg['css']) ){
-			foreach($cfg['css'] as $href){
-				$html.=<<<HTML
+		foreach($cfg['css'] as $href){
+			$html.=<<<HTML
 	<link rel="stylesheet" href="$href">
 
 HTML;
-			}
 		}
 
 		// noscript
@@ -156,14 +154,12 @@ HTML;
 		}
 
 		// rss
-		if( \is_array($cfg['rss']) ){
-			foreach($cfg['rss'] as $title=>$url){
-				$title = \htmlspecialchars($title);
-				$html.=<<<HTML
+		foreach($cfg['rss'] as $title=>$url){
+			$title = \htmlspecialchars($title);
+			$html.=<<<HTML
 	<link rel="alternate" type="application/rss+xml" title="$title" href="$url">
 
 HTML;
-			}
 		}
 
 		// canonical
@@ -175,7 +171,7 @@ HTML;
 		}
 
 		// custom
-		if( !empty($cfg['custom']) ) $html.=$cfg['custom'] . "\n";
+		if( !empty($cfg['custom']) ) $html.="\t" . $cfg['custom'] . "\n";
 
 		$html.="</head>\n";
 
@@ -190,16 +186,14 @@ HTML;
 		$html = '';
 
 		// templates
-		if( \is_array($cfg['templates']) ){
-			foreach($cfg['templates'] as $id=>$file_path){
-				$template = \file_get_contents($file_path);
-				$html.=<<<HTML
+		foreach($cfg['templates'] as $id=>$file_path){
+			$template = \file_get_contents($file_path);
+			$html.=<<<HTML
 <script id="template_$id" type="text/html">
 $template
 </script>
 
 HTML;
-			}
 		}
 
 		// js
