@@ -109,7 +109,7 @@ class Page {
 		$cfg = $this->cfg;
 
 		$lang = !empty($cfg['lang']) ? " lang=\"{$cfg['lang']}\"":'';
-		$title = \htmlspecialchars($cfg['title']);
+		$title = ek\htmlSafe($cfg['title']);
 
 		$html = <<<HTML
 <!doctype html>
@@ -123,7 +123,7 @@ HTML;
 		// description and keywords
 		foreach(['description', 'keywords'] as $name){
 			if( !empty($cfg[$name]) ){
-				$content = \htmlspecialchars($cfg[$name]);
+				$content = ek\htmlSafe($cfg[$name]);
 				$html.=<<<HTML
 	<meta name="$name" content="$content">
 
@@ -219,7 +219,7 @@ HTML;
 		// og:title and og:image
 		foreach(['og:title', 'og:image'] as $property){
 			if( !empty($cfg[$property]) ){
-				$content = \htmlspecialchars($cfg[$property]);
+				$content = ek\htmlSafe($cfg[$property]);
 				$html.=<<<HTML
 	<meta property="$property" content="$content">
 
@@ -229,7 +229,7 @@ HTML;
 
 		// rss
 		foreach($cfg['rss'] as $title=>$url){
-			$title = \htmlspecialchars($title);
+			$title = ek\htmlSafe($title);
 			$html.=<<<HTML
 	<link rel="alternate" type="application/rss+xml" title="$title" href="$url">
 
