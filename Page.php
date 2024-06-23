@@ -54,6 +54,27 @@ class Page {
 	}
 
 
+	/*
+	This internal helper function makes it possible to provide a simplified array representation of CSS/JS files, preconnects, etc, i.e.:
+
+	[
+		['script.js'],
+		['ek.js']
+	]
+
+	...instead of more complex, verbose representations like:
+
+	[
+		[
+			'src'=>'script.js'
+		],
+		[
+			'src'=>'ek.js'
+		]
+	]
+
+	If the array provided is a simple array, it converts it to a complex array using the values from $attr and $default_vals. If it is a complex array, it returns the original array with no modifications
+	*/
 	private function arrayHelper(array $array, string $attr, array $default_vals=[]): array {
 		if(
 			!\count($array)==1
