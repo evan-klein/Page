@@ -18,6 +18,7 @@ class Page {
 		'apple-touch-icon' => NULL,
 
 		'preconnect' => [],
+		'google_fonts' => false,
 
 		'viewport' => 'width=device-width, user-scalable=no, initial-scale=1.0',
 		'css' => [],
@@ -141,7 +142,30 @@ HTML;
 			}
 		}
 
+		// Google Fonts
+		if($cfg['google_fonts']){
+			$cfg['preconnect'][]='https://fonts.googleapis.com';
+			$cfg['preconnect'][]=[
+				'rel' => 'preconnect'
+				'href' => 'https://fonts.gstatic.com',
+				'crossorigin' => NULL
+			];
+		}
+
 		// preconnect
+		foreach($cfg['preconnect'] as $preconnect){
+			$html.=ek\buildHTMLElem(
+				'link',
+				$this->arrayHelper(
+					$preconnect,
+					'href',
+					['rel' => 'preconnect']
+				),
+				'',
+				"\n",
+				"\t"
+			);
+		}
 
 		// viewport
 		if( !empty($cfg['viewport']) ){
