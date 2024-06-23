@@ -146,7 +146,7 @@ HTML;
 		if($cfg['google_fonts']){
 			$cfg['preconnect'][]='https://fonts.googleapis.com';
 			$cfg['preconnect'][]=[
-				'rel' => 'preconnect'
+				'rel' => 'preconnect',
 				'href' => 'https://fonts.gstatic.com',
 				'crossorigin' => NULL
 			];
