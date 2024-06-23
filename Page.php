@@ -55,7 +55,7 @@ class Page {
 
 
 	/*
-	This internal helper function makes it possible to provide a simplified array representation of CSS/JS files, preconnects, etc, i.e.:
+	This internal helper function makes it possible to provide simplified array representations of CSS/JS files, preconnects, etc, i.e.:
 
 	[
 		['script.js'],
@@ -66,10 +66,10 @@ class Page {
 
 	[
 		[
-			'src'=>'script.js'
+			'src' => 'script.js'
 		],
 		[
-			'src'=>'ek.js'
+			'src' => 'ek.js'
 		]
 	]
 
