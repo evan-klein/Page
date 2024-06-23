@@ -152,11 +152,18 @@ HTML;
 		}
 
 		// css
-		foreach($cfg['css'] as $href){
-			$html.=<<<HTML
-	<link rel="stylesheet" href="$href">
-
-HTML;
+		foreach($cfg['css'] as $css){
+			$html.=ek\buildHTMLElem(
+				'link',
+				$this->arrayHelper(
+					$css,
+					'href',
+					['rel' => 'stylesheet']
+				),
+				'',
+				"\n",
+				"\t"
+			);
 		}
 
 		// noscript
@@ -240,6 +247,18 @@ HTML;
 		}
 
 		// js
+		foreach($cfg['js'] as $js){
+			$html.=ek\buildHTMLElem(
+				'script',
+				$this->arrayHelper(
+					$js,
+					'src'
+				),
+				$js['--content'] ?? '',
+				"\n",
+				"\t"
+			);
+		}
 
 		return $html;
 	}
