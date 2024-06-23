@@ -54,6 +54,22 @@ class Page {
 	}
 
 
+	private function arrayHelper(array $array, string $attr, array $default_vals=[]): array {
+		if(
+			!\count($array)==1
+			||
+			!\array_key_first($array)==0
+		) return $array;
+
+		return \array_merge(
+			$default_vals,
+			[
+				$attr => $array[0]
+			]
+		);
+	}
+
+
 	public function head(): string {
 		// Shortcut
 		$cfg = $this->cfg;
