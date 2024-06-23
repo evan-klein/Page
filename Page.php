@@ -29,8 +29,19 @@ class Page {
 
 		'manifest' => NULL,
 
-		'og:title' => NULL,
-		'og:image' => NULL,
+		'og' => [
+			'!og:title' => NULL,
+			'og:image' => NULL,
+			'og:type' => NULL,
+			'og:url' => NULL,
+			'!og:image:alt' => NULL,
+			'!og:description' => NULL,
+			'!og:determiner' => NULL,
+			'!og:locale' => 'en_US',
+			'!og:site_name' => NULL,
+			'og:video' => NULL,
+			'og:audio' => NULL
+		],
 		'rss' => [],
 
 		'canonical' => NULL,
@@ -216,10 +227,14 @@ HTML;
 HTML;
 		}
 
-		// og:title and og:image
-		foreach(['og:title', 'og:image'] as $property){
-			if( !empty($cfg[$property]) ){
-				$content = ek\htmlSafe($cfg[$property]);
+		// og
+		foreach($cfg['og'] as $property=>$content){
+			if( !empty($content) ){
+				// If the attribute name starts with a "!", then use ek\htmlSafe() to escape it
+				if( \substr($property, 0, 1)=='!' ){
+					$property = \substr($property, 1);
+					$content = ek\htmlSafe($content);
+				}
 				$html.=<<<HTML
 	<meta property="$property" content="$content">
 
