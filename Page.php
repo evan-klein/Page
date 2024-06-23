@@ -1,6 +1,9 @@
 <?php
 
 namespace evan_klein\page;
+use evan_klein\ek as ek;
+
+require_once('ek.php');
 
 class Page {
 	// Default values
