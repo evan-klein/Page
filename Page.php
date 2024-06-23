@@ -23,6 +23,10 @@ class Page {
 		'viewport' => 'width=device-width, user-scalable=no, initial-scale=1.0',
 		'format-detection' => NULL,
 		'css' => [],
+		'apple' => [
+			'apple-mobile-web-app-capable' => NULL,
+			'apple-mobile-web-app-status-bar-style' => NULL
+		],
 
 		'noscript' => NULL,
 
@@ -232,6 +236,17 @@ HTML;
 				"\n",
 				"\t"
 			);
+		}
+
+		// apple
+		foreach($cfg['apple'] as $name=>$content){
+			if( !empty($content) ){
+				$content = ek\htmlSafe($content);
+				$html.=<<<HTML
+	<meta name="$name" content="$content">
+
+HTML;
+			}
 		}
 
 		// noscript
