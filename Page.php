@@ -70,7 +70,7 @@ class Page {
 		// Shortcut
 		$cfg = $this->cfg;
 
-		$lang = !\empty($cfg['lang']) ? " lang=\"{$cfg['lang']}\"":'';
+		$lang = !empty($cfg['lang']) ? " lang=\"{$cfg['lang']}\"":'';
 		$title = \htmlspecialchars($cfg['title']);
 
 		$html = <<<HTML
@@ -84,7 +84,7 @@ HTML;
 
 		// description and keywords
 		foreach(['description', 'keywords'] as $name){
-			if( !\empty($cfg[$name]) ){
+			if( !empty($cfg[$name]) ){
 				$content = \htmlspecialchars($cfg[$name]);
 				$html.=<<<HTML
 	<meta name="$name" content="$content">
@@ -107,7 +107,7 @@ HTML;
 		// preconnect
 
 		// viewport
-		if( !\empty($cfg['viewport']) ){
+		if( !empty($cfg['viewport']) ){
 			$html.=<<<HTML
 	<meta name="viewport" content="{$cfg['viewport']}">
 
@@ -125,7 +125,7 @@ HTML;
 		}
 
 		// noscript
-		if( !\empty($cfg['noscript']) ){
+		if( !empty($cfg['noscript']) ){
 			$html.=<<<HTML
 	<noscript>
 		<meta http-equiv="refresh" content="0;url={$cfg['noscript']}">
@@ -137,7 +137,7 @@ HTML;
 		// plausible
 
 		// manifest
-		if( !\empty($cfg['manifest']) ){
+		if( !empty($cfg['manifest']) ){
 			$html.=<<<HTML
 	<link rel="manifest" href="{$cfg['manifest']}">
 
@@ -146,7 +146,7 @@ HTML;
 
 		// og:title and og:image
 		foreach(['og:title', 'og:image'] as $property){
-			if( !\empty($cfg[$property]) ){
+			if( !empty($cfg[$property]) ){
 				$content = \htmlspecialchars($cfg[$property]);
 				$html.=<<<HTML
 	<meta property="$property" content="$content">
@@ -167,7 +167,7 @@ HTML;
 		}
 
 		// canonical
-		if( !\empty($cfg['canonical']) ){
+		if( !empty($cfg['canonical']) ){
 			$html.=<<<HTML
 	<link rel="canonical" href="{$cfg['canonical']}">
 
@@ -175,7 +175,7 @@ HTML;
 		}
 
 		// custom
-		if( !\empty($cfg['custom']) ) $html.=$cfg['custom'] . "\n";
+		if( !empty($cfg['custom']) ) $html.=$cfg['custom'] . "\n";
 
 		$html.="</head>\n";
 
