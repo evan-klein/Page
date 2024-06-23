@@ -58,6 +58,13 @@ class Page {
 	This internal helper function makes it possible to provide simplified array representations of CSS/JS files, preconnects, etc, i.e.:
 
 	[
+		'script.js',
+		'ek.js'
+	]
+
+	-or-
+
+	[
 		['script.js'],
 		['ek.js']
 	]
@@ -75,17 +82,19 @@ class Page {
 
 	If the array provided is a simple array, it converts it to a complex array using the values from $attr and $default_vals. If it is a complex array, it returns the original array with no modifications
 	*/
-	private function arrayHelper(array $array, string $attr, array $default_vals=[]): array {
+	private function arrayHelper(string|array $input, string $attr, array $default_vals=[]): array {
+		if( \is_string($input) ) $input = [$input];
+
 		if(
-			!\count($array)==1
+			!\count($input)==1
 			||
-			!\array_key_first($array)==0
-		) return $array;
+			!\array_key_first($input)==0
+		) return $input;
 
 		return \array_merge(
 			$default_vals,
 			[
-				$attr => $array[0]
+				$attr => $input[0]
 			]
 		);
 	}
