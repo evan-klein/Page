@@ -170,7 +170,7 @@ HTML;
 		if( !empty($cfg['noscript']) ){
 			$html.=<<<HTML
 	<noscript>
-		<meta http-equiv="refresh" content="0;url={$cfg['noscript']}">
+		<meta http-equiv="refresh" content="0; url={$cfg['noscript']}">
 	</noscript>
 
 HTML;
