@@ -121,6 +121,12 @@ HTML;
 		}
 
 		// plausible
+		if( !empty($cfg['plausible']) ){
+			$html.=<<<HTML
+	<script defer data-domain="{$cfg['plausible']}" src="https://plausible.io/js/plausible.js"></script>
+
+HTML;
+		}
 
 		// manifest
 		if( !empty($cfg['manifest']) ){
