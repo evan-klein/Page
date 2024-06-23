@@ -21,6 +21,7 @@ class Page {
 		'google_fonts' => false,
 
 		'viewport' => 'width=device-width, user-scalable=no, initial-scale=1.0',
+		'format-detection' => NULL,
 		'css' => [],
 
 		'noscript' => NULL,
@@ -206,6 +207,14 @@ HTML;
 		if( !empty($cfg['viewport']) ){
 			$html.=<<<HTML
 	<meta name="viewport" content="{$cfg['viewport']}">
+
+HTML;
+		}
+
+		// format-detection
+		if( !empty($cfg['format-detection']) ){
+			$html.=<<<HTML
+	<meta name="format-detection" content="{$cfg['format-detection']}">
 
 HTML;
 		}
