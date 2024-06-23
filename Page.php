@@ -123,7 +123,7 @@ HTML;
 		// plausible
 		if( !empty($cfg['plausible']) ){
 			$html.=<<<HTML
-	<script defer data-domain="{$cfg['plausible']}" src="https://plausible.io/js/plausible.js"></script>
+	<script defer data-domain="{$cfg['plausible']}" src="https://plausible.io/js/script.js"></script>
 
 HTML;
 		}
