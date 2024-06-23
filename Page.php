@@ -42,6 +42,30 @@ class Page {
 			'og:video' => NULL,
 			'og:audio' => NULL
 		],
+		'twitter' => [
+			'twitter:card' => NULL,
+			'!twitter:site' => NULL,
+			'!twitter:site:id' => NULL,
+			'!twitter:creator' => NULL,
+			'!twitter:creator:id' => NULL,
+			'!twitter:description' => NULL,
+			'!twitter:title' => NULL,
+			'twitter:image' => NULL,
+			'!twitter:image:alt' => NULL,
+			'twitter:player' => NULL,
+			'twitter:player:width' => NULL,
+			'twitter:player:height' => NULL,
+			'twitter:player:stream' => NULL,
+			'!twitter:app:name:iphone' => NULL,
+			'!twitter:app:id:iphone' => NULL,
+			'twitter:app:url:iphone' => NULL,
+			'!twitter:app:name:ipad' => NULL,
+			'!twitter:app:id:ipad' => NULL,
+			'twitter:app:url:ipad' => NULL,
+			'!twitter:app:name:googleplay' => NULL,
+			'!twitter:app:id:googleplay' => NULL,
+			'twitter:app:url:googleplay' => NULL
+		],
 		'rss' => [],
 
 		'canonical' => NULL,
@@ -237,6 +261,21 @@ HTML;
 				}
 				$html.=<<<HTML
 	<meta property="$property" content="$content">
+
+HTML;
+			}
+		}
+
+		// twitter
+		foreach($cfg['twitter'] as $name=>$content){
+			if( !empty($content) ){
+				// If the attribute name starts with a "!", then use ek\htmlSafe() to escape it
+				if( \substr($name, 0, 1)=='!' ){
+					$name = \substr($name, 1);
+					$content = ek\htmlSafe($content);
+				}
+				$html.=<<<HTML
+	<meta name="$name" content="$content">
 
 HTML;
 			}
