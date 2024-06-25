@@ -25,7 +25,8 @@ class Page {
 		'css' => [],
 		'apple' => [
 			'apple-mobile-web-app-capable' => NULL,
-			'apple-mobile-web-app-status-bar-style' => NULL
+			'apple-mobile-web-app-status-bar-style' => NULL,
+			'!apple-mobile-web-app-title' => NULL
 		],
 
 		'noscript' => NULL,
@@ -241,7 +242,12 @@ HTML;
 		// apple
 		foreach($cfg['apple'] as $name=>$content){
 			if( !empty($content) ){
-				$content = ek\htmlSafe($content);
+				// If the attribute name starts with a "!", then use ek\htmlSafe() to escape it
+				if( \substr($name, 0, 1)=='!' ){
+					$name = \substr($name, 1);
+					$content = ek\htmlSafe($content);
+				}
+
 				$html.=<<<HTML
 	<meta name="$name" content="$content">
 
@@ -283,6 +289,7 @@ HTML;
 					$property = \substr($property, 1);
 					$content = ek\htmlSafe($content);
 				}
+
 				$html.=<<<HTML
 	<meta property="$property" content="$content">
 
@@ -298,6 +305,7 @@ HTML;
 					$name = \substr($name, 1);
 					$content = ek\htmlSafe($content);
 				}
+
 				$html.=<<<HTML
 	<meta name="$name" content="$content">
 
