@@ -99,6 +99,54 @@ class Page {
 	}
 
 
+	public function addPreconnect($preconnect): self {
+		$this->cfg['preconnect'][] = $preconnect;
+		return $this;
+	}
+
+
+	public function addCSS($css): self {
+		$this->cfg['css'][] = $css;
+		return $this;
+	}
+
+
+	public function addApple(string $name, string $content): self {
+		$this->cfg['apple'][$name] = $content;
+		return $this;
+	}
+
+
+	public function addOG(string $property, string $content): self {
+		$this->cfg['og'][$property] = $content;
+		return $this;
+	}
+
+
+	public function addTwitter(string $name, string $content): self {
+		$this->cfg['twitter'][$name] = $content;
+		return $this;
+	}
+
+
+	public function addRSS(string $title, string $url): self {
+		$this->cfg['rss'][$title] = $url;
+		return $this;
+	}
+
+
+	public function addTemplate(string $id, string $file_path): self {
+		$this->cfg['templates'][$id] = $file_path;
+		return $this;
+	}
+
+
+	public function addJS($js): self {
+		$this->cfg['js'][] = $js;
+		return $this;
+	}
+
+
 	/*
 	This internal helper function makes it possible to provide simplified array representations of CSS/JS files, preconnects, etc, i.e.:
 
