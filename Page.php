@@ -13,6 +13,7 @@ class Page {
 		'title' => 'Page title goes here',
 		'description' => NULL,
 		'keywords' => NULL,
+		'author' => NULL,
 
 		'icon' => NULL,
 		'apple-touch-icon' => NULL,
@@ -209,8 +210,8 @@ class Page {
 
 HTML;
 
-		// description and keywords
-		foreach(['description', 'keywords'] as $name){
+		// description, keywords and author
+		foreach(['description', 'keywords', 'author'] as $name){
 			if( !empty($cfg[$name]) ){
 				$content = ek\htmlSafe($cfg[$name]);
 				$html.=<<<HTML
