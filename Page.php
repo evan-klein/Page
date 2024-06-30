@@ -44,7 +44,7 @@ class Page {
 			'!og:image:alt' => NULL,
 			'!og:description' => NULL,
 			'!og:determiner' => NULL,
-			'!og:locale' => 'en_US',
+			'!og:locale' => NULL,
 			'!og:site_name' => NULL,
 			'og:video' => NULL,
 			'og:audio' => NULL
