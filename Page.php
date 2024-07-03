@@ -148,6 +148,21 @@ class Page {
 	}
 
 
+	public function addCanonical(string $canonical): self {
+		$this->cfg['canonical'] = $canonical;
+
+		if(
+			isset($this->cfg['og'])
+			&&
+			\is_array($this->cfg['og'])
+			&&
+			isset($this->cfg['og']['!og:title'])
+		) $this->cfg['og']['og:url'] = $canonical;
+
+		return $this;
+	}
+
+
 	/*
 	This internal helper function makes it possible to provide simplified array representations of CSS/JS files, preconnects, etc, i.e.:
 
