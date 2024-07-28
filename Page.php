@@ -317,7 +317,7 @@ HTML;
 		// theme-color-light
 		if( !empty($cfg['theme-color-light']) ){
 			$html.=<<<HTML
-	<meta name="theme-color-light" content="{$cfg['theme-color-light']}" media="(prefers-color-scheme: light)">
+	<meta name="theme-color" content="{$cfg['theme-color-light']}" media="(prefers-color-scheme: light)">
 
 HTML;
 		}
@@ -325,7 +325,7 @@ HTML;
 		// theme-color-dark
 		if( !empty($cfg['theme-color-dark']) ){
 			$html.=<<<HTML
-	<meta name="theme-color-dark" content="{$cfg['theme-color-dark']}" media="(prefers-color-scheme: dark)">
+	<meta name="theme-color" content="{$cfg['theme-color-dark']}" media="(prefers-color-scheme: dark)">
 
 HTML;
 		}
