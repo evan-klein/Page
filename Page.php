@@ -24,6 +24,9 @@ class Page {
 		'viewport' => 'width=device-width, user-scalable=no, initial-scale=1.0',
 		'format-detection' => NULL,
 		'css' => [],
+		'theme-color' => NULL,
+		'theme-color-light' => NULL,
+		'theme-color-dark' => NULL,
 		'apple' => [
 			'apple-mobile-web-app-capable' => NULL,
 			'apple-mobile-web-app-status-bar-style' => NULL,
@@ -301,6 +304,30 @@ HTML;
 				"\n",
 				"\t"
 			);
+		}
+
+		// theme-color
+		if( !empty($cfg['theme-color']) ){
+			$html.=<<<HTML
+	<meta name="theme-color" content="{$cfg['theme-color']}">
+
+HTML;
+		}
+
+		// theme-color-light
+		if( !empty($cfg['theme-color-light']) ){
+			$html.=<<<HTML
+	<meta name="theme-color-light" content="{$cfg['theme-color-light']}" media="(prefers-color-scheme: light)">
+
+HTML;
+		}
+
+		// theme-color-dark
+		if( !empty($cfg['theme-color-dark']) ){
+			$html.=<<<HTML
+	<meta name="theme-color-dark" content="{$cfg['theme-color-dark']}" media="(prefers-color-scheme: dark)">
+
+HTML;
 		}
 
 		// apple
